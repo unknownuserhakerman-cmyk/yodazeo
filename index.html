@@ -15,12 +15,11 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        /* HEADER */
         .header {
             display: flex;
             align-items: center;
@@ -54,7 +53,6 @@
             font-weight: 600;
         }
 
-        /* HERO */
         .hero {
             text-align: center;
             padding: 80px 0 60px;
@@ -128,7 +126,6 @@
             font-size: 13px;
         }
 
-        /* UI MOCKUP */
         .ui-box {
             background: #16161f;
             border-radius: 16px;
@@ -148,19 +145,12 @@
         }
 
         .ui-dots { display: flex; gap: 6px; }
-        .ui-dot {
-            width: 11px; height: 11px;
-            border-radius: 50%;
-        }
+        .ui-dot { width: 11px; height: 11px; border-radius: 50%; }
         .ui-dot.r { background: #ff5f57; }
         .ui-dot.y { background: #ffbd2e; }
         .ui-dot.g { background: #28c840; }
 
-        .ui-title span {
-            color: #555;
-            font-size: 13px;
-            font-family: monospace;
-        }
+        .ui-title span { color: #555; font-size: 13px; font-family: monospace; }
         .ui-title span em { color: #a855f7; font-style: normal; }
 
         .ui-toolbar {
@@ -171,25 +161,10 @@
             gap: 4px;
             border-bottom: 1px solid rgba(255,255,255,0.03);
         }
-        .ui-tab {
-            padding: 4px 14px;
-            border-radius: 6px;
-            font-size: 12px;
-            color: #666;
-            cursor: default;
-        }
-        .ui-tab.active {
-            background: rgba(168,85,247,0.12);
-            color: #a855f7;
-        }
+        .ui-tab { padding: 4px 14px; border-radius: 6px; font-size: 12px; color: #666; cursor: default; }
+        .ui-tab.active { background: rgba(168,85,247,0.12); color: #a855f7; }
         .ui-spacer { flex: 1; }
-        .ui-status {
-            font-size: 11px;
-            color: #28c840;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+        .ui-status { font-size: 11px; color: #28c840; display: flex; align-items: center; gap: 5px; }
 
         .ui-editor {
             padding: 16px;
@@ -215,32 +190,15 @@
             background: #181822;
             border-top: 1px solid rgba(255,255,255,0.03);
         }
-        .ui-bottom .info {
-            font-size: 11px;
-            color: #555;
-        }
+        .ui-bottom .info { font-size: 11px; color: #555; }
         .ui-bottom .execute {
             background: linear-gradient(135deg, #7c3aed, #a855f7);
-            color: #fff;
-            border: none;
-            padding: 6px 22px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
+            color: #fff; border: none; padding: 6px 22px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;
         }
         .ui-bottom .clear {
-            background: rgba(255,255,255,0.04);
-            color: #666;
-            border: none;
-            padding: 6px 16px;
-            border-radius: 6px;
-            font-size: 12px;
-            cursor: pointer;
-            margin-right: 8px;
+            background: rgba(255,255,255,0.04); color: #666; border: none; padding: 6px 16px; border-radius: 6px; font-size: 12px; cursor: pointer; margin-right: 8px;
         }
 
-        /* STATS */
         .stats {
             display: flex;
             justify-content: center;
@@ -251,30 +209,14 @@
             margin-top: 60px;
             flex-wrap: wrap;
         }
-        .stat {
-            text-align: center;
-        }
-        .stat .num {
-            font-size: 24px;
-            font-weight: 800;
-            color: #a855f7;
-        }
-        .stat .label {
-            font-size: 13px;
-            color: #777;
-            margin-top: 4px;
-        }
+        .stat { text-align: center; }
+        .stat .num { font-size: 24px; font-weight: 800; color: #a855f7; }
+        .stat .label { font-size: 13px; color: #777; margin-top: 4px; }
 
-        /* FEATURES */
         .features {
             padding: 60px 0;
         }
-        .features h2 {
-            text-align: center;
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 40px;
-        }
+        .features h2 { text-align: center; font-size: 32px; font-weight: 800; margin-bottom: 40px; }
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -288,19 +230,126 @@
             text-align: center;
             transition: all 0.3s;
         }
-        .card:hover {
-            border-color: rgba(168,85,247,0.3);
-            transform: translateY(-3px);
-        }
+        .card:hover { border-color: rgba(168,85,247,0.3); transform: translateY(-3px); }
         .card .icon { font-size: 32px; margin-bottom: 12px; }
         .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
         .card p { color: #888; font-size: 14px; line-height: 1.5; }
 
-        /* DOWNLOAD SECTION */
+        .pricing {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            text-align: center;
+        }
+        .pricing h2 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+        .pricing .sub { color: #888; font-size: 16px; margin-bottom: 40px; }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 36px 28px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .price-card.featured {
+            border-color: #a855f7;
+            background: rgba(168,85,247,0.05);
+        }
+        .price-card.featured::before {
+            content: "BEST VALUE";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 16px;
+            border-radius: 50px;
+            letter-spacing: 1px;
+        }
+        .price-card:hover { transform: translateY(-4px); }
+        .price-card .plan { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+        .price-card .price { font-size: 42px; font-weight: 900; margin: 12px 0; }
+        .price-card .price span { font-size: 16px; font-weight: 400; color: #888; }
+        .price-card ul { list-style: none; margin: 20px 0; text-align: left; display: inline-block; }
+        .price-card ul li { padding: 6px 0; color: #bbb; font-size: 14px; }
+        .price-card ul li::before { content: "✓ "; color: #a855f7; font-weight: 700; }
+
+        .btn-price {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: #fff;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 8px;
+            width: 100%;
+        }
+        .btn-price:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 30px rgba(168,85,247,0.4);
+        }
+        .btn-price-outline {
+            background: transparent;
+            color: #a855f7;
+            border: 2px solid #a855f7;
+            padding: 12px 40px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 8px;
+            width: 100%;
+        }
+        .btn-price-outline:hover { background: rgba(168,85,247,0.1); }
+
+        .discord-section {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid rgba(88,101,242,0.1);
+            border-bottom: 1px solid rgba(88,101,242,0.1);
+            background: rgba(88,101,242,0.02);
+        }
+        .discord-section h2 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+        .discord-section p { color: #888; font-size: 16px; margin-bottom: 28px; max-width: 450px; margin-left: auto; margin-right: auto; }
+
+        .btn-discord {
+            background: #5865F2;
+            color: #fff;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-discord:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(88,101,242,0.5);
+        }
+
         .dl-section {
             text-align: center;
             padding: 60px 0;
-            border-top: 1px solid rgba(255,255,255,0.04);
         }
         .dl-section h2 { font-size: 36px; font-weight: 900; margin-bottom: 12px; }
         .dl-section p { color: #888; margin-bottom: 32px; font-size: 16px; }
@@ -330,13 +379,8 @@
             box-shadow: 0 0 50px rgba(168,85,247,0.5);
         }
 
-        .dl-version {
-            margin-top: 14px;
-            color: #555;
-            font-size: 13px;
-        }
+        .dl-version { margin-top: 14px; color: #555; font-size: 13px; }
 
-        /* FOOTER */
         .footer {
             text-align: center;
             padding: 30px 0;
@@ -345,7 +389,6 @@
             font-size: 13px;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 600px) {
             .hero h1 { font-size: 32px; }
             .nav a { margin-left: 12px; font-size: 12px; }
@@ -354,6 +397,7 @@
             .btn-download { padding: 14px 32px; font-size: 16px; }
             .btn-secondary { padding: 14px 20px; font-size: 14px; margin-left: 0; margin-top: 10px; }
             .dl-features { flex-direction: column; align-items: center; }
+            .pricing-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -366,6 +410,8 @@
         <div class="nav">
             <a href="#">Home</a>
             <a href="#features">Features</a>
+            <a href="#pricing">Premium</a>
+            <a href="#discord">Discord</a>
             <a href="#download">Download</a>
             <a href="#" class="dl-btn" onclick="downloadIt()">Download</a>
         </div>
@@ -465,31 +511,37 @@
         </div>
     </div>
 
-    <div class="dl-section" id="download">
-        <h2>Ready to Dominate?</h2>
-        <p>Download Yoda Executor v3.2.1 — the most powerful Roblox executor.</p>
-        <div class="dl-features">
-            <span><span class="check">✓</span> No Key</span>
-            <span><span class="check">✓</span> Undetected</span>
-            <span><span class="check">✓</span> Auto-Update</span>
-            <span><span class="check">✓</span> Level 7</span>
-            <span><span class="check">✓</span> Free</span>
+    <div class="pricing" id="pricing">
+        <h2>Go Premium</h2>
+        <p class="sub">Unlock the full power of Yoda Executor</p>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="plan">Free</div>
+                <div class="price">$0 <span>/ month</span></div>
+                <ul>
+                    <li>Basic script execution</li>
+                    <li>Limited script hub</li>
+                    <li>Standard support</li>
+                    <li>Ads included</li>
+                </ul>
+                <button class="btn-price-outline" onclick="downloadIt()">Get Started</button>
+            </div>
+            <div class="price-card featured">
+                <div class="plan">Premium</div>
+                <div class="price">$5 <span>/ month</span></div>
+                <ul>
+                    <li>Unlimited script execution</li>
+                    <li>Full script hub access</li>
+                    <li>Priority support</li>
+                    <li>No ads</li>
+                    <li>Beta features access</li>
+                    <li>Early updates</li>
+                </ul>
+                <button class="btn-price" onclick="window.open('https://www.patreon.com/YodaExecutor', '_blank')">Subscribe Now</button>
+            </div>
         </div>
-        <button class="btn-dl-big" onclick="downloadIt()">⬇ Download Yoda Executor</button>
-        <div class="dl-version">v3.2.1 • Windows 10/11 • 19.7 MB • Updated June 28, 2026</div>
     </div>
 
-    <div class="footer">
-        © 2026 Yoda Executor. Not affiliated with Roblox Corporation.
-    </div>
-
-</div>
-
-<script>
-    function downloadIt() {
-        window.open('https://www.mediafire.com/file/ytj1ag3twq4aogq/Yoda-executor-v1.2.zip/file', '_blank');
-    }
-</script>
-
-</body>
-                                                                                                                                                                                                                                                        </html>
+    <div class="discord-section" id="discord">
+        <h2>Join Our Discord</h2>
+        <p>Connect with 200,000+ members. Get support, share scripts, and 
